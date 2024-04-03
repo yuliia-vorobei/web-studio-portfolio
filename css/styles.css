@@ -87,25 +87,44 @@ img {
 }
 
 .mob-menu {
-  position: absolute;
-  width: 320px;
-  min-height: 640px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 72px 24px 40px 16px;
+  top: 0;
+  padding: 24px 24px 40px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 999;
 }
 
-.modal-close .mob-menu {
-  background-color: none;
+.modal-close-mob {
+  margin-left: auto;
+  margin-bottom: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .mob-menu-nav {
   display: flex;
-  row-gap: 40px;
   flex-direction: column;
+  gap: 40px;
+  margin-bottom: auto;
 }
+
 .mob-menu-link {
   font-weight: 700;
   font-size: 36px;
@@ -114,20 +133,45 @@ img {
   text-transform: capitalize;
   color: #2e2f42;
 }
-.navigation-list {
-  display: none;
+
+.studio-mob {
+  color: #404bbf;
 }
 
-.address-mob {
-  font-style: normal;
+.navigation-list {
+  display: none;
 }
 
 .address-mob-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 48px;
 }
+
+.nav-container-mob {
+  margin-bottom: auto;
+}
+.address-mob-link {
+  color: #434455;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.tel-mob {
+  color: #4d5ae5;
+}
+
+.mob-icons-list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 48px;
+}
+
 .address {
   display: none;
 }
@@ -140,7 +184,7 @@ img {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/hero-background.jpg);
+    url(../images/hero-image-mob.jpg);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-repeat: no-repeat;
   max-width: 320px;
@@ -149,6 +193,17 @@ img {
   margin: 0 auto;
 }
 
+@media screen and (-webkit-min-device-pizel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/hero-image-mob-2x.jpg);
+  }
+}
 .hero-title {
   font-size: 36px;
   line-height: 1.11;
@@ -747,6 +802,10 @@ textarea::placeholder {
     padding-right: 16px;
   }
 
+  .header {
+    padding: 0;
+  }
+
   .header-container {
     display: flex;
     align-items: center;
@@ -761,12 +820,16 @@ textarea::placeholder {
     display: none;
   }
 
+  .mob-menu {
+    display: none;
+  }
+
   .navigation-list {
     display: flex;
     gap: 40px;
   }
 
-  .current {
+  .nav-link.current {
     position: relative;
     color: #404bbf;
   }
@@ -789,6 +852,8 @@ textarea::placeholder {
     letter-spacing: 0.02em;
     color: #2e2f42;
     display: block;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 
   .address {
@@ -799,15 +864,17 @@ textarea::placeholder {
 
   .address-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    row-gap: 12px;
+    flex-direction: column;
+    row-gap: 11px;
+  }
+
+  .address-mob-link {
+    display: none;
   }
 
   .address-link {
-    font-style: 12px;
+    font-size: 12px;
     font-family: "Roboto", sans-serif;
-    /* line-height: 1.5; */
     line-height: 1.17;
     letter-spacing: 0.02em;
     color: #434455;
@@ -827,6 +894,26 @@ textarea::placeholder {
     max-width: 768px;
   }
 
+  @media screen and (min-width: 768px) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero-tablet.jpg);
+    }
+  }
+  @media screen and (-webkit-min-device-pizel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero-tablet-2x.jpg);
+    }
+  }
   .hero-title {
     font-size: 56px;
     line-height: 1.07;
@@ -839,7 +926,7 @@ textarea::placeholder {
   }
 
   .team .container {
-    width: 100%;
+    width: 768px;
     padding-left: 108px;
     padding-right: 108px;
   }
@@ -865,7 +952,7 @@ textarea::placeholder {
   }
 
   .footer .container {
-    width: 100%;
+    width: 768px;
     padding-left: 108px;
     display: flex;
     flex-wrap: wrap;
@@ -939,6 +1026,10 @@ textarea::placeholder {
     align-items: center;
   }
 
+  .mob-menu {
+    display: none;
+  }
+
   .logo {
     margin-right: 76px;
   }
@@ -975,8 +1066,10 @@ textarea::placeholder {
   .address-container {
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
     gap: 40px;
     flex-wrap: nowrap;
+    row-gap: 0;
   }
 
   .address-link {
@@ -992,6 +1085,26 @@ textarea::placeholder {
     color: #404bbf;
   }
 
+  @media screen and (min-width: 1158px) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero-background.jpg);
+    }
+  }
+  @media screen and (-webkit-min-device-pizel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/hero-desctop-2x.jpg);
+    }
+  }
   .hero {
     padding: 188px 0;
     max-width: 1440px;
@@ -1051,6 +1164,7 @@ textarea::placeholder {
   }
 
   .team .container {
+    width: 1158px;
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
@@ -1090,10 +1204,13 @@ textarea::placeholder {
   }
 
   .footer .container {
+    width: 1158px;
+    padding: 0 15px;
     flex-wrap: nowrap;
   }
   .footer-wrap {
     margin-right: 120px;
+    margin-bottom: 0;
   }
 
   .logo-footer {
