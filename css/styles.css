@@ -88,7 +88,7 @@ img {
 
 .mob-menu {
   position: fixed;
-  width: 100%;
+  width: 320px;
   height: 100%;
   background-color: #fff;
   top: 0;
@@ -610,6 +610,7 @@ img {
   visibility: visible;
   pointer-events: auto;
 }
+
 .modal {
   position: absolute;
   /* width: 408px; */
@@ -820,9 +821,9 @@ textarea::placeholder {
     display: none;
   }
 
-  .mob-menu {
+  /* .mob-menu {
     display: none;
-  }
+  } */
 
   .navigation-list {
     display: flex;
@@ -866,10 +867,6 @@ textarea::placeholder {
     display: flex;
     flex-direction: column;
     row-gap: 11px;
-  }
-
-  .address-mob-link {
-    display: none;
   }
 
   .address-link {
@@ -1026,9 +1023,9 @@ textarea::placeholder {
     align-items: center;
   }
 
-  .mob-menu {
+  /* .mob-menu {
     display: none;
-  }
+  } */
 
   .logo {
     margin-right: 76px;
