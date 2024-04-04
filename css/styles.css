@@ -88,7 +88,7 @@ img {
 
 .mob-menu {
   position: fixed;
-  width: 320px;
+  width: 100%;
   height: 100%;
   background-color: #fff;
   top: 0;
@@ -493,6 +493,12 @@ img {
   justify-content: center;
 }
 
+.footer-subscripe {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .footer-icons-list {
   display: flex;
   gap: 16px;
@@ -547,7 +553,6 @@ img {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   opacity: 0.3;
   color: #ffffff;
-  margin-bottom: 16px;
 }
 
 .user-email-address::placeholder {
@@ -821,9 +826,9 @@ textarea::placeholder {
     display: none;
   }
 
-  /* .mob-menu {
+  .mob-menu {
     display: none;
-  } */
+  }
 
   .navigation-list {
     display: flex;
@@ -877,16 +882,6 @@ textarea::placeholder {
     color: #434455;
   }
 
-  .features-list {
-    width: 100%;
-    gap: 24px;
-    row-gap: 72px;
-  }
-
-  .features-item {
-    width: calc((100% - 3 * 24px) / 4);
-  }
-
   .hero {
     max-width: 768px;
   }
@@ -920,6 +915,17 @@ textarea::placeholder {
 
   .features-item {
     width: calc((100% - 24px) / 2);
+    text-align: left;
+  }
+
+  .features-title {
+    text-align: left;
+  }
+
+  .features-list {
+    width: 100%;
+    gap: 24px;
+    row-gap: 72px;
   }
 
   .team .container {
@@ -976,6 +982,7 @@ textarea::placeholder {
 
   .footer-subscripe {
     display: flex;
+    flex-direction: row;
     gap: 24px;
   }
 
@@ -1023,9 +1030,9 @@ textarea::placeholder {
     align-items: center;
   }
 
-  /* .mob-menu {
+  .mob-menu {
     display: none;
-  } */
+  }
 
   .logo {
     margin-right: 76px;
